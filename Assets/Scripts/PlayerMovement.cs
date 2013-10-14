@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour {
 			if(jumped == false)
 			{
 				jumped = true;
-				rigidbody.transform.Translate(new Vector3(0, 10, 0));
+				rigidbody.AddRelativeForce(new Vector3(0, 10, 0));
 			}
 		}
 	}
