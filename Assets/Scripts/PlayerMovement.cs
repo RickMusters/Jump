@@ -14,16 +14,16 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
 		if (Input.GetKey(KeyCode.S))
 		{
-			rigidbody.AddRelativeForce(new Vector3(0, -50, 0));	
+			rigidbody.transform.Translate(new Vector3(0, 1, 0));	
 		}
 		
 		else if (Input.GetKey(KeyCode.A))
 		{
-			rigidbody.AddRelativeForce(new Vector3(-50, 0, 0));
+			rigidbody.transform.Translate(new Vector3(-0.2f, 0, 0));
 		}
 		if (Input.GetKey(KeyCode.D))
 		{
-			rigidbody.AddRelativeForce(new Vector3(50, 0, 0));
+			rigidbody.transform.Translate(new Vector3(0.2f, 0, 0));
 		}
 		
 		if (Input.GetKey(KeyCode.W))
@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour {
 			if(jumped == false)
 			{
 				jumped = true;
-				rigidbody.AddRelativeForce(new Vector3(0, 300, 0));
+				rigidbody.transform.Translate(new Vector3(0, 10, 0));
 			}
 		}
 	}
