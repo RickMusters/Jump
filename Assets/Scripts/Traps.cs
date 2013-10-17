@@ -7,6 +7,7 @@ public class Traps : MonoBehaviour {
 		if(col.collider.name == "Player")
 		{
 			Destroy(col.gameObject);
+			Application.LoadLevel(0);
 		}
 	}
 }
