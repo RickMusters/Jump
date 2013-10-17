@@ -14,10 +14,10 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
 		if (Input.GetKey(KeyCode.S))
 		{
-			rigidbody.transform.Translate(new Vector3(0, 1, 0));	
+			rigidbody.AddRelativeForce(new Vector3(0, -1, 0));	
 		}
 		
-		else if (Input.GetKey(KeyCode.A))
+		if (Input.GetKey(KeyCode.A))
 		{
 			rigidbody.transform.Translate(new Vector3(-0.2f, 0, 0));
 		}
@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour {
 			if(jumped == false)
 			{
 				jumped = true;
-				rigidbody.AddRelativeForce(new Vector3(0, 10, 0));
+				rigidbody.AddForce(new Vector3(10,0,0));
 			}
 		}
 	}
