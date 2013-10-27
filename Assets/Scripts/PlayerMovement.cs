@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
 	
 	private bool jumped = false;
+	private bool firepress = false;
 
 	// Use this for initialization
 	void Start () {
@@ -11,19 +12,21 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
+		
 		if (Input.GetKey(KeyCode.S))
 		{
-			rigidbody.AddRelativeForce(new Vector3(0, -1, 0));	
+			rigidbody.AddForce(new Vector3(0, 50, 0));	
 		}
 		
-		if (Input.GetKey(KeyCode.A))
+		else if (Input.GetKey(KeyCode.A))
 		{
-			rigidbody.transform.Translate(new Vector3(-0.2f, 0, 0));
+			rigidbody.AddForce(new Vector3(-50, 0, 0));
 		}
 		if (Input.GetKey(KeyCode.D))
 		{
-			rigidbody.transform.Translate(new Vector3(0.2f, 0, 0));
+			rigidbody.AddForce(new Vector3(50, 0, 0));
 		}
 		
 		if (Input.GetKey(KeyCode.W))
@@ -31,8 +34,20 @@ public class PlayerMovement : MonoBehaviour {
 			if(jumped == false)
 			{
 				jumped = true;
-				rigidbody.AddForce(new Vector3(10,0,0));
+				rigidbody.AddForce(new Vector3(0, 1000, 0));
 			}
+		}
+		if (Input.GetAxis("Fire1") == 1)
+		{
+			if(firepress == false)
+			{
+				GameObject bullet = Instantiate(Resources.Load("Bullet"),transform.position,transform.rotation) as GameObject;
+				firepress = true;
+			}
+		}
+		else
+		{
+			firepress = false;
 		}
 	}
 	void OnCollisionEnter(Collision col)
