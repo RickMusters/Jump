@@ -6,8 +6,9 @@ public class Traps : MonoBehaviour {
 	void OnCollisionEnter(Collision col){
 		if(col.collider.name == "Player")
 		{
+			Debug.Log("sup");
 			Destroy(col.gameObject);
-			Application.LoadLevel(0);
+			Application.LoadLevel(1);
 		}
 	}
 }

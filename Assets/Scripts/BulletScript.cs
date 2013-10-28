@@ -5,7 +5,7 @@ public class BulletScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Destroy(gameObject, 5f);
+		Destroy(gameObject, 4f);
 	}
 	
 	// Update is called once per frame
